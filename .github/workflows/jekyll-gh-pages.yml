@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Install Sphinx
       run: sudo apt-get update && sudo apt-get install -y python3-sphinx
     - name: Install nox package
@@ -28,7 +28,7 @@ jobs:
     concurrency: ci-${{ github.ref }}
     needs: build
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
