@@ -42,7 +42,7 @@ jobs:
       - name: Delete artifact
         # You may pin to the exact commit or the version.
         # uses: joutvhu/delete-artifact@404b3caf21eaaa38b13c1c7ec45577d07f20223a
-        uses: joutvhu/delete-artifact@v1.0.2
+        uses: joutvhu/delete-artifact@v2.0.1
         with:
           # The name of the artifact to delete, multiple names can be supplied on new lines.
           name: docs
