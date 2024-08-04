@@ -6,10 +6,9 @@ installing dependencies.
 
 ## Motivation
 
-APT is dependency hell. Dependency hell is when one of the dependencies are outside release
-cycle. This can break apps, especially when they get older and older while dependencies get
-newer and newer while causing breaking changes. Aptfiles install every dependency with
-one command, while following release cycle.
+APT isn't really that good for managing dependencies. Aptfile solves this by putting
+a list of dependencies into a single file. This shortens `apt install a b c d e f g h`
+to just `aptfile get`.
 
 Also, APT packages are harder to be used by GUI app stores, like GNOME Software and KDE
 Discover. Aptfiles solve that, by containing information about the package in a single
@@ -26,14 +25,6 @@ Aptfiles are written in [TOML](https://toml.io/en/) format. You can write an Apt
 # Main Aptfile data.
 target = 1.0
 
-[humanfriendly.info]
-# This is designed to be read by appstores. Without it, you should NOT list your app on Linux
-# app stores, and you should NOT recommend your app to non-developers. It's called "humanfriendly"
-# because plain "package names" are made for experienced users and even "robots".
-name = "Hello World"
-description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-version = "1.0"
-
 [apt.dependencies]
 # dependencies is freeform. Any package can go in as a value. You can define just the major number,
 # the major and minor number, or even all 3 numbers (major, minor, and patch). It is recommended to
@@ -43,11 +34,8 @@ python3 = 3.9
 cython3 = "latest"
 ```
 
-This is not a full list of Aptfile data values. See [the guidelines](https://tylerms887.github.io/Aptfile)
-for a (mostly) complete list.
-
 ## Is this an official Debian project?
 
 No. However, it's a fairly new project and could get adopted by the Debian Project one day, and
 be used as a Debian packaging standard, as Aptfile gets better and better. **Do not confuse Aptfile with
-the `apt-file` utility, suddenly with the same name.**
+the `apt-file` utility, coincidentally with the same name.**
