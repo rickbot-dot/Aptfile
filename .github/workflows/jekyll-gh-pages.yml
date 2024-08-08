@@ -17,7 +17,7 @@ jobs:
     - name: Build Sphinx docs
       run: nox -s docs
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         path: ./build/docs
         name: docs
